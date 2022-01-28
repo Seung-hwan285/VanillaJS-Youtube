@@ -25,11 +25,14 @@ describe('유튜브 검색 테스트', () => {
 
     it('유투브 검색하고 검색하기 버튼 누르면 로딩 컴포넌트 나오는지 테스트',()=>{
         typeSearchToSubmitButton('먹방');
+        cy.get('["data-youtube="model_skeleton"]').should('be.visible');
     });
 
 
     it('검색후 결과가 10개씩 나오는지 테스트',()=>{
         typeSearchToSubmitButton('먹방');
+        cy.get('[data-youtube="model_clip"]').should('have.length',10);
+
     });
 
     it('검색후 스크룰 내리면 10개씩 추가되는 테스트',()=>{

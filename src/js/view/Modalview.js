@@ -28,7 +28,9 @@ export const renderRecentKeyword=(keyword)=>{
 
 
     listKeyWord.push(keyword);
+
     console.log(listKeyWord);
+    listKeyWord.map(item => console.log(item));
     $('[data-youtube="search-modal_recent"]').innerHTML=
         recentKeywordLabel() + listKeyWord.map(recentKeywordTemplate).join("");
 }

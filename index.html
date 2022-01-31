@@ -21,6 +21,12 @@
             </nav>
           </header>
           <main class="mt-10">
+
+            <section>
+              <div class="d-flex justify-end text-gray-700" data-youtube="youtube-search-modal__save-video-count">
+              </div>
+
+            </section>
             <section class="video-wrapper">
               <article class="clip">
                 <div class="preview-container">
@@ -69,7 +75,7 @@
           <header>
             <h2 class="text-center">🔎 유튜브 검색</h2>
           </header>
-          <form class="d-flex">
+          <form class="d-flex" id ="search-keyword-form">
             <input type="text" class="w-100 mr-2 pl-2" id="data-input" placeholder="검색" />
             <button type="button" class="btn bg-cyan-500" id="data-submit">검색</button>
           </form>
@@ -78,12 +84,12 @@
 
           </section>
           <section>
-            <div class="d-flex justify-end text-gray-700">
-              저장된 영상 갯수: 50개
+            <div class="d-flex justify-end text-gray-700" data-youtube="search-count">
+              저장된 영상 갯수: 0개
             </div>
             <div class="d-none" data-youtube="search-modal_spinner"></div>
 
-            <section class="video-wrapper" id="abc" data-youtube="search-video">
+            <section class="video-wrapper" id="search-result-video-wrapper" data-youtube="search-video">
             </section>
 
 

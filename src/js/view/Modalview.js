@@ -1,4 +1,6 @@
-import {$} from "../utils/querySelector.js";
+import {$, $$} from "../utils/querySelector.js";
+import {request} from "../utils/fetch.js";
+import {API_KEY} from "../utils/api.js";
 
 const $modal = $('[data-youtube="search-modal"]');
 
@@ -37,11 +39,11 @@ export const renderRecentKeyword=(keyword)=>{
 
 
 
-// 2. 로딩 컴포넌트가 생기다가 2초정도 그리고 해당 검색 영상들이 나온다.
-// -> 1초뒤에 로딩 컴포넌트 나오고있음
-// -> 3초뒤에 로딩 컴포넌트 제거
-// -> 해당 영상 출력
-export const renderLoadingComponent=()=>{
+
+
+
+
+export const getSearchResultTemplate =({videoId,chanelId,channelTitle,publishedAt})=>{
 
     const $spinner = $('[data-youtube="search-modal_spinner"]');
     const $video = $('[data-youtube="search-video"]');
@@ -64,7 +66,7 @@ export const renderLoadingComponent=()=>{
                   <iframe
                     width="100%"
                     height="118"
-                    src="https://www.youtube.com/embed/Ngj3498Tm_0"
+                    src="https://www.youtube.com/embed/${videoId}"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
@@ -74,14 +76,14 @@ export const renderLoadingComponent=()=>{
                   <h3>아두이노 무드등</h3>
                   <div>
                     <a
-                      href="https://www.youtube.com/channel/UC-mOekGSesms0agFntnQang"
+                      href="https://www.youtube.com/channel/${chanelId}"
                       target="_blank"
                       class="channel-name mt-1"
                     >
-                      메이커준
+                      ${channelTitle}
                     </a>
                     <div class="meta">
-                      <p>2021년 3월 2일</p>
+                      <p>${publishedAt}</p>
                     </div>
                     <div class="d-flex justify-end">
                       <button class="btn">⬇️ 저장</button>
@@ -91,11 +93,49 @@ export const renderLoadingComponent=()=>{
               </article>`;
     },3000);
 
+}
 
+
+const renderSearchResult = (articcleInfo)=>{
+    const $videoWrapper = $('#search-result-video-wrapper');
+    $videoWrapper.innerHTML = articcleInfo.map((articcleInfo)=>getSearchResultTemplate(articcleInfo)).join("");
+}
+const processJSON = (rawData) => {
+    return rawData.items.map((item) => ({
+        videoId: item.id.videoId,
+        videoTitle: item.snippet.title,
+        channelId: item.snippet.channelId,
+        channelTitle: item.snippet.channelTitle,
+        publishedAt: item.snippet.publishedAt,
+    }));
 
 }
 
-export const renderLoadingVideo=()=>{
+
+const getURLQueryStringApplied=(queryString)=>{
+
+    const queryStringFlag = Object.keys(queryString)
+        .map((key)=>`&${key}=${queryString[key]}`)
+        .join('');
+
+    return `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`.concat(queryStringFlag);
+};
 
 
-}
+export const onSearchKeyword =(e)=>{
+    const url = getURLQueryStringApplied({
+        part: 'snippet',
+        q: e.target.elements['search-keyword-input'].value,
+        type: 'video',
+        maxResults: 10,
+        regionCode: 'KR',
+    });
+
+
+    request(url)
+        .then((response) => {
+            return processJSON(response);
+        })
+        .then((articlesInfo) => renderSearchResult(articlesInfo))
+        .catch((error) => console.error(error));
+};

@@ -16,12 +16,12 @@ describe('나만의 유투브', () => {
         cy.get('#search-button').click();
     });
 
-    // const typeSearchToSubmitButton =(keyword)=>{
-    //
-    //     cy.get('#search-input').type(keyword);
-    //     cy.get('#search-submit').click();
-    //
-    // };
+    const typeSearchToSubmitButton =(keyword)=>{
+
+        cy.get('#search-input').type(keyword);
+        cy.get('#search-submit').click();
+
+    };
 
 
     it('최근 검색어가 3개씩 나오는지 테스트',()=> {
@@ -41,14 +41,14 @@ describe('나만의 유투브', () => {
             .should('have.length', 3);
     });
 
-    //
-    // it('검색 키워드 제출하고, 키워드 관련된 영상들이 나오는지 테스트',()=>{
-    //
-    //     typeSearchToSubmitButton('프론트개발자');
-    //     cy.get('.published-at').each(($el)=>cy.wrap($el).should('have.text','line'));
-    //     cy.get('.channel-title').each(($el)=>cy.wrap($el).should('have.text','line'));
-    //     cy.get('.video-title').each(($el)=>cy.wrap($el).should('have.text','line'));
-    // });
+
+    it('검색 키워드 제출하고, 키워드 관련된 영상들이 나오는지 테스트',()=>{
+
+        typeSearchToSubmitButton('프론트개발자');
+        cy.get('.published-at').each(($el)=>cy.wrap($el).should('have.class','line'));
+        cy.get('.channel-title').each(($el)=>cy.wrap($el).should('have.class','line'));
+        cy.get('.video-title').each(($el)=>cy.wrap($el).should('have.class','line'));
+    });
 
 
 

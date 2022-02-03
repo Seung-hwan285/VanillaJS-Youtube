@@ -4,7 +4,6 @@ import {getURLQueryStringApplied, request} from "../utils/fetch.js";
 import {MAX_RESULT_COUNT, PART_TYPE, REGION_CODE, SEARCH_TYPE_VIDEO} from "../constant.js";
 
 
-
 const processJSON = (rawData) => {
     // 각 동영상에 맞는 데이터를 반환
     return rawData.items.map((item)=>({
@@ -17,17 +16,14 @@ const processJSON = (rawData) => {
 };
 
 
-
 const requestSearch =(url)=>{
     request(url)
         .then((response)=>{
-
             return processJSON(response);
         })
         .then((articleInfo)=>renderSearchResult(articleInfo))
         .then((error)=>console.log(error));
 };
-
 
 
 export const onSearchKeywordClick=()=>{
@@ -51,10 +47,10 @@ export const onSearchKeywordClick=()=>{
     renderRecentKeyword($keywordInput);
 }
 
-export const onSearchKeywordEnter = (e) => {
 
-    e.preventDefault();
+export const onSearchKeywordEnter = (e) => {
     const $keywordInput = $('#search-input').value;
+    e.preventDefault();
 
     const url = getURLQueryStringApplied({
 

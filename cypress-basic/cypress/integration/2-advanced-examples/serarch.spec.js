@@ -9,32 +9,46 @@
 // -[] 동영상 개수는 8개씩 보여준다. -> 스크롤바로 내리면 8개가 추가로 보여진다.
 
 
+
 describe('나만의 유투브', () => {
     beforeEach(() => {
         cy.visit('http://localhost:63342/Youtube/index.html?_ijt=ia51uc4ominhpl19ost0mhdvss&_ij_reload=RELOAD_ON_SAVE');
         cy.get('#search-button').click();
     });
 
-    const typeSearchToSubmitButton =(keyword)=>{
+    // const typeSearchToSubmitButton =(keyword)=>{
+    //
+    //     cy.get('#search-input').type(keyword);
+    //     cy.get('#search-submit').click();
+    //
+    // };
 
-        cy.get('#search-input').type(keyword);
-        cy.get('#search-submit').click();
 
-    };
+    it('최근 검색어가 3개씩 나오는지 테스트',()=> {
 
-    it('최근 검색어 나오는지 테스트',()=>{
 
-        typeSearchToSubmitButton('123');
-        cy.get('.chip').should('have.text','123');
+        const KEYWORDS = ['카카오','쿠팡','네이버'];
+        const TRY_COUNT = KEYWORDS.length;
+
+
+        KEYWORDS.forEach((keyword) => {
+            cy.get('#search-input').clear().type(keyword);
+            cy.get('#search-keyword-form').submit();
+        });
+
+        cy.get('#recent-keyword')
+            .siblings()
+            .should('have.length', 3);
     });
 
-    it('검색 키워드 제출하고, 키워드 관련된 영상들이 나오는지 테스트',()=>{
-
-        typeSearchToSubmitButton('프론트개발자');
-        cy.get('.published-at').each(($el)=>cy.wrap($el).should('have.text','line'));
-        cy.get('.channel-title').each(($el)=>cy.wrap($el).should('have.text','line'));
-        cy.get('.video-title').each(($el)=>cy.wrap($el).should('have.text','line'));
-    });
+    //
+    // it('검색 키워드 제출하고, 키워드 관련된 영상들이 나오는지 테스트',()=>{
+    //
+    //     typeSearchToSubmitButton('프론트개발자');
+    //     cy.get('.published-at').each(($el)=>cy.wrap($el).should('have.text','line'));
+    //     cy.get('.channel-title').each(($el)=>cy.wrap($el).should('have.text','line'));
+    //     cy.get('.video-title').each(($el)=>cy.wrap($el).should('have.text','line'));
+    // });
 
 
 

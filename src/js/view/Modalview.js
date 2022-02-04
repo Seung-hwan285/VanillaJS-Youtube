@@ -94,8 +94,8 @@ const getSearchResultTemplate = ({ videoId, videoTitle, channelId, channelTitle,
     `;
 };
 
-export const renderSearchResult = async (articlesInfo) => {
-    const $videoWrapper = document.querySelector('#search-result-video-wrapper');
+export const renderSearchResult = (articlesInfo) => {
+    const $videoWrapper = $('#search-result-video-wrapper');
 
     const $spinner = $('[data-js="search-modal_spinner"]');
 
@@ -109,7 +109,7 @@ export const renderSearchResult = async (articlesInfo) => {
     },2000);
 
     setTimeout(function (){
-        $videoWrapper.innerHTML = articlesInfo.map((articleInfo) => getSearchResultTemplate(articleInfo)).join('');
+        $videoWrapper.insertAdjacentHTML("beforeend",articlesInfo.map((articleInfo) => getSearchResultTemplate(articleInfo)).join(''));
     },2000);
 
 };

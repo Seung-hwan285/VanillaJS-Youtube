@@ -16,7 +16,7 @@ const processJSON = (rawData) => {
 };
 
 
-const requestSearch =(url)=>{
+export const requestSearch =(url)=>{
     request(url)
         .then((response)=>{
             return processJSON(response);
@@ -26,9 +26,15 @@ const requestSearch =(url)=>{
 };
 
 
+
 export const onSearchKeywordClick=()=>{
     const $keywordInput = $('#search-input').value;
+    renderSearchGroup();
+    renderRecentKeyword($keywordInput);
+}
 
+const renderSearchGroup=()=>{
+    const $keywordInput = $('#search-input').value;
     const url = getURLQueryStringApplied({
 
         // sinppet 개체에 있는 동영상 리소스를 반환합니다.
@@ -41,32 +47,16 @@ export const onSearchKeywordClick=()=>{
         maxResults: MAX_RESULT_COUNT,
         // 동영상 글 언어
         regionCode: REGION_CODE,
-    });
 
+    });
     requestSearch(url);
-    renderRecentKeyword($keywordInput);
 }
 
 
 export const onSearchKeywordEnter = (e) => {
     const $keywordInput = $('#search-input').value;
     e.preventDefault();
-
-    const url = getURLQueryStringApplied({
-
-        // sinppet 개체에 있는 동영상 리소스를 반환합니다.
-        part: PART_TYPE,
-        // 검색어를 지정합니다.
-        q: $keywordInput,
-        // video
-        type: SEARCH_TYPE_VIDEO,
-        // 동영상 갯수
-        maxResults: MAX_RESULT_COUNT,
-        // 동영상 글 언어
-        regionCode: REGION_CODE,
-    });
-
-    requestSearch(url);
+    renderSearchGroup();
     renderRecentKeyword($keywordInput);
 
 };

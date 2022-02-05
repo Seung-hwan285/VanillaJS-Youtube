@@ -59,20 +59,24 @@
       </main>
     </div>
   </div>
-  <div class="modal" id="search-section">
+  <section class="modal" id="search-section" data-js="sel">
     <div class="modal-inner p-8">
+
       <button class="modal-close" data-youtube="search-close">
         <svg viewbox="0 0 40 40">
           <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
         </svg>
       </button>
+
       <header>
         <h2 class="text-center">🔎 유튜브 검색</h2>
       </header>
+
       <form class="d-flex" id="search-keyword-form">
         <input type="text" class="w-100 mr-2 pl-2" id="search-input" placeholder="검색" />
         <button type="button" class="btn bg-cyan-500" id="search-submit">검색</button>
       </form>
+
       <section class="mt-2">
         <span class="text-gray-700" data-js="search-modal_recent" ></span>
 
@@ -83,6 +87,7 @@
         </div>
 
         <div class="d-none" data-js="search-modal_spinner"></div>
+
         <section class="video-wrapper" id="search-result-video-wrapper">
           <article class="clip">
             <div class="preview-container">
@@ -250,6 +255,7 @@
             </div>
           </article>
           <article class="clip">
+
           <div class="preview-container">
             <iframe
                     width="100%"
@@ -260,6 +266,7 @@
                     allowfullscreen
             ></iframe>
           </div>
+
           <div class="content-container pt-2 px-1">
             <h3>아두이노 무드등</h3>
             <div>
@@ -286,7 +293,7 @@
         </section>
       </section>
     </div>
-  </div>
+  </section>
 </div>
 <script type="module" src="src/js/index.js"></script>
 

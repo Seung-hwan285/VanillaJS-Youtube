@@ -1,19 +1,20 @@
-// 스코롤 맨 밑까지 내리면 작동
-// 5개가 추가되서 나타난다
-// 지금 추가되는게 아니고 전체적으로 바뀌는 현상이 발생중
+import {$} from "../utils/querySelector.js";
+import {renderSearchGroup} from "./onModalShow.js";
+
+const $modalInner = $('.modal-inner');
+export const onMoreScroll=()=>{
 
 
-export const onMoreScroll=(e)=>{
+    const valueInput = $('#search-input').value;
+    if(($modalInner.offsetHeight + $modalInner.scrollTop +1) >=$modalInner.scrollHeight
+    && valueInput !==""){
 
 
-    if(e.scrollHeight -  e.scrollTop === e.clientHeight){
-        return;
+        // 클립 영상이 새로 추가되야함
+        // renderSearchGroup을 호출하면 같은 클립 영상들이 호출이 된다.
+        //renderSearchGroup();
+        renderSearchGroup();
+
     }
-
-    else{
-        console.log(e.target);
-    }
-
-
 
 }

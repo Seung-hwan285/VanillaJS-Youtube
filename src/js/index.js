@@ -1,7 +1,7 @@
 
 import {$} from "./utils/querySelector.js";
 import {onModalClose, onModalShowOpen} from "./view/Modalview.js";
-import {onSearchKeywordClick, renderSearchGroup} from "./handle/onModalShow.js";
+import {onSearchKeywordClick} from "./handle/onModalShow.js";
 import {onSearchKeywordEnter} from "./handle/onModalShow.js";
 import {onMoreScroll} from "./handle/onMoreScroll.js";
 
@@ -23,20 +23,8 @@ export const YoutubeClassRoom =()=>{
     // Click으로 동영상 검색
     $searchBtn.addEventListener("click",onSearchKeywordClick);
 
-
-    console.log($modalInner);
-    $modalInner.addEventListener("scroll",(e)=>{
-
-
-        // 해당 콘텐츠 높이와 다음 스크롤 위치 높이를 더하고 그 값이
-        // 전체 모달창 높이보다 크거나 같다면 아래감지
-        console.log($modalInner.offsetHeight + $modalInner.scrollTop);
-        console.log($modalInner.scrollHeight);
-        if(($modalInner.offsetHeight + $modalInner.scrollTop +1) >=$modalInner.scrollHeight){
-
-            console.log('fds');
-        }
-    });
+    // 스크롤 내리면 클립 영상 추가
+    $modalInner.addEventListener("scroll",onMoreScroll);
 
 
 };

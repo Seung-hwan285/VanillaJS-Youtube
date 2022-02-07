@@ -4,6 +4,9 @@
 https://docs.cypress.io/guides/references/assertions#Chai
 
 
+### 프로젝트 현황
+https://www.notion.so/18bd973fc11942c3848cb2eda231ffbe
+
 ### 회고록 및 어려웠던 점
 1. https://www.notion.so/2022-01-27-86b55e5c901c4f4c92f5705a0ce1dcec<br>
 2. https://www.notion.so/2022-01-28-f0f314f04767403395f669cc9508c704<br>

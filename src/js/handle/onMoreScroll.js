@@ -1,5 +1,5 @@
 import {$} from "../utils/querySelector.js";
-import {renderSearchGroup} from "./onModalShow.js";
+import {nextPage, renderSearchGroup, requestSearch} from "./onModalShow.js";
 
 const $modalInner = $('.modal-inner');
 export const onMoreScroll=()=>{
@@ -10,10 +10,13 @@ export const onMoreScroll=()=>{
     && valueInput !==""){
 
 
+
+
         // 클립 영상이 새로 추가되야함
         // renderSearchGroup을 호출하면 같은 클립 영상들이 호출이 된다.
-        //renderSearchGroup();
+
         renderSearchGroup();
+
 
     }
 

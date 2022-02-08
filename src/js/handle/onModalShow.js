@@ -8,16 +8,13 @@ import {
     SEARCH_TYPE_VIDEO
 } from "../constant.js";
 
-let nextPageToken;
 
+
+let nextPageToken ='';
 const processJSON = (rawData) => {
 
 
-
-
-    nextPage(rawData.nextPageToken);
-
-
+    nextPageToken=rawData.nextPageToken;
 
     // 각 동영상에 맞는 데이터를 반환
     return rawData.items.map((item)=>({
@@ -31,13 +28,10 @@ const processJSON = (rawData) => {
 };
 
 
-export const nextPage =(token)=>{
+export const nextPage =()=>{
 
     const $keywordInput = $('#search-input').value;
 
-    nextPageToken = token;
-
-    console.log(nextPageToken);
     const url =getURLQueryStringApplied({
 
         part : PART_TYPE,
@@ -48,7 +42,8 @@ export const nextPage =(token)=>{
         pageToken: nextPageToken,
     });
 
-
+    requestSearch(url);
+    nextPageToken='';
 }
 
 export const requestSearch =(url)=>{
@@ -102,4 +97,3 @@ export const onSearchKeywordEnter = (e) => {
     renderRecentKeyword($keywordInput);
 
 };
-

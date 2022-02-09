@@ -61,8 +61,6 @@ describe('나만의 유투브', () => {
             .children()
             .should('have.length',7);
 
-
-
     });
 
 

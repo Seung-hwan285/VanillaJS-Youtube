@@ -10,8 +10,6 @@
 
 
 
-import {MAX_RESULT_COUNT} from "../../../../src/js/constant.js";
-
 describe('나만의 유투브', () => {
     beforeEach(() => {
         cy.visit('http://localhost:63342/Youtube/index.html?_ijt=ia51uc4ominhpl19ost0mhdvss&_ij_reload=RELOAD_ON_SAVE');
@@ -53,15 +51,17 @@ describe('나만의 유투브', () => {
     // });
 
 
-    it('스크롤바 끝까지 이동시키면 다음 4개 영상을 추가로 불러오는지 테스트',()=>{
+    it('스크롤바 끝까지 이동시키면 다음 2개 영상을 추가로 불러오는지 테스트',()=>{
 
-        typeSearchToSubmitButton('벡엔드개발자');
+        typeSearchToSubmitButton('먹방');
 
-        cy.scrollTo('bottom');
 
+        cy.get('.modal-inner').scrollTo('bottom');
         cy.get('#search-result-video-wrapper')
             .children()
-            .should('have.length',MAX_RESULT_COUNT*2);
+            .should('have.length',7);
+
+
 
     });
 

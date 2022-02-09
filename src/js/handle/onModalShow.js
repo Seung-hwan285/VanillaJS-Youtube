@@ -16,7 +16,7 @@ const processJSON = (rawData) => {
 
     nextPageToken=rawData.nextPageToken;
 
-    // 각 동영상에 맞는 데이터를 반환
+
     return rawData.items.map((item)=>({
         videoId : item.id.videoId,
         videoTitle : item.snippet.title,

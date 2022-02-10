@@ -46,6 +46,7 @@ export const nextPage =()=>{
     nextPageToken='';
 }
 
+
 export const requestSearch =(url)=>{
 
 
@@ -56,9 +57,6 @@ export const requestSearch =(url)=>{
         .then((articleInfo)=>renderSearchResult(articleInfo))
         .then((error)=>console.log(error));
 };
-
-
-
 
 
 export const renderSearchGroup=()=>{

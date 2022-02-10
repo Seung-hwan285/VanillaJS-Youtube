@@ -1,12 +1,18 @@
+// [x] json객체로 데이터 가져오기
+// [x] 로컬스토리지에 set으로 저장 -> 배열만들어서 저장 하기
+
+
+
+
+const videoList =[];
+
 export const onModalSave=(e)=>{
 
 
-    // [x] json객체로 데이터 가져오기
-    // [] 로컬스토리지에 set으로 저장 -> 배열만들어서 저장 하기
 
     const target = e.target;
 
-    const videoList =[];
+
 
     const video ={
         videoId : target.dataset.videoId,
@@ -17,9 +23,13 @@ export const onModalSave=(e)=>{
     }
 
 
+    videoList.push(video);
 
-    localStorage.setItem('videoWatch',JSON.stringify(video));
+
+    setTodos();
+}
 
 
-    console.log(localStorage);
+const setTodos=()=>{
+    localStorage.setItem("videoWatch",JSON.stringify(videoList));
 }

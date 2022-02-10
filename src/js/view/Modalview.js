@@ -41,7 +41,7 @@ export const renderRecentKeyword=(keyword)=>{
 
     listKeyWord.push(keyword);
     const $$recentKeyword =$$('.chip').length;
-    console.log($$recentKeyword);
+
 
     if($$recentKeyword < 3){
         $('[data-js="search-modal_recent"]').innerHTML=
@@ -94,6 +94,9 @@ const getSearchResultTemplate = ({ videoId, videoTitle, channelId, channelTitle,
     `;
 };
 
+
+
+
 export const renderSearchResult = (articlesInfo) => {
     const $videoWrapper = $('#search-result-video-wrapper');
 
@@ -113,3 +116,5 @@ export const renderSearchResult = (articlesInfo) => {
     },2000);
 
 };
+
+

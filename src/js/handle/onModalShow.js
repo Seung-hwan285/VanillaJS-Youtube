@@ -59,6 +59,8 @@ export const requestSearch =(url)=>{
 
 
 
+
+
 export const renderSearchGroup=()=>{
     const pagetToken ="";
     const $keywordInput = $('#search-input').value;

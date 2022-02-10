@@ -51,17 +51,33 @@ describe('나만의 유투브', () => {
     // });
 
 
-    it('스크롤바 끝까지 이동시키면 다음 2개 영상을 추가로 불러오는지 테스트',()=>{
+    // it('스크롤바 끝까지 이동시키면 다음 2개 영상을 추가로 불러오는지 테스트',()=>{
+    //
+    //     typeSearchToSubmitButton('먹방');
+    //
+    //
+    //     cy.get('.modal-inner').scrollTo('bottom');
+    //     cy.get('#search-result-video-wrapper')
+    //         .children()
+    //         .should('have.length',7);
+    //
+    // });
+
+
+
+    it('저장버튼 누르면 로컬스토리지에 저장되는지 테스트',()=>{
 
         typeSearchToSubmitButton('먹방');
+        cy.get('.save-button')
+            .eq(0) //첫번째 인덱스 가져옴 -> 첫번째 영상 저장버튼
+            .click()
+            .invoke('removeattr','data-video-id')
+            .then((storageVideoId)=>{
+               const list = JSON.parse(localStorage.getItem('localVideoId'));
 
-
-        cy.get('.modal-inner').scrollTo('bottom');
-        cy.get('#search-result-video-wrapper')
-            .children()
-            .should('have.length',7);
+               // 현재 로컬스토리지에 있는 videoId랑 클릭한 videoId랑 같은지 비교
+               expect(list[0].videoId).to.equal(storageVideoId);
+            });
 
     });
-
-
 });

@@ -1,13 +1,25 @@
-
-// const $saveBtn = $('.save-button');
-
-import {$} from "../utils/querySelector.js";
-
-export const onModalSave=()=>{
+export const onModalSave=(e)=>{
 
 
+    // [x] json객체로 데이터 가져오기
+    // [] 로컬스토리지에 set으로 저장 -> 배열만들어서 저장 하기
 
-    const saveTarget = $('.save-button');
+    const target = e.target;
 
-    console.log(saveTarget);
+    const videoList =[];
+
+    const video ={
+        videoId : target.dataset.videoId,
+        videoTitle : target.dataset.videoTitel,
+        channelId : target.dataset.channelId,
+        channelTitle : target.dataset.channelId,
+        publishedAt : target.dataset.publishedAt,
+    }
+
+
+
+    localStorage.setItem('videoWatch',JSON.stringify(video));
+
+
+    console.log(localStorage);
 }

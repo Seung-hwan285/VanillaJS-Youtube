@@ -15,7 +15,7 @@
 
 .show{
     visibility: visible !important;
-    -webkit-animation:  fadein 1s , faeout 1s;
+    -webkit-animation:  fadein 1s;
 }
 
 @keyframes fadein {
@@ -28,11 +28,3 @@
     }
 }
 
-@keyframes fadeout {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}

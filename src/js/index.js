@@ -5,6 +5,7 @@ import {onSearchKeywordClick} from "./handle/onModalShow.js";
 import {onSearchKeywordEnter} from "./handle/onModalShow.js";
 import {onMoreScroll} from "./handle/onMoreScroll.js";
 import {onModalSave} from "./handle/onModalSave.js";
+import {setVideo} from "./utils/localStorage.js";
 
 
 
@@ -34,7 +35,7 @@ export const YoutubeClassRoom =()=>{
     $modalInner.addEventListener("scroll",onMoreScroll);
 
 
-
+    // 저장버튼
     $('#search-result-video-wrapper').addEventListener("click",onModalSave);
 
 };

@@ -15,19 +15,19 @@ const classListToRemove =()=>{
 }
 
 export const setVideo=()=>{
+
+
     localStorage.setItem("videoWatch",JSON.stringify(videoList));
 }
 
 export const getVideo=()=>{
 
     const getvideos=localStorage.getItem("videoWatch");
-    const saveBox = $('#save');
 
     if(getvideos !==null){
         const paresVideo =JSON.parse(getvideos);
-        console.log(paresVideo);
 
-        saveBox.innerHTML=`저장된 영상 갯수 : ${paresVideo.length}개`;
+
         if(paresVideo.length >=5){
             classListToAdd();
             // 에러메시지 창

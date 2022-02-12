@@ -7,21 +7,31 @@
 
 
 import {getVideo, handlerVideoData, setVideo} from "../utils/localStorage.js";
+import {$} from "../utils/querySelector.js";
 
 export const onModalSave=(e)=>{
 
-    handlerVideoData(e);
-
-    const getvideos =localStorage.getItem('videoWatch');
-
-
-    const parseVideo = JSON.parse(getvideos);
-
-    if(parseVideo.length >=5){
-        return;
-    }
     setVideo();
-    getVideo();
+    const getvideos =localStorage.getItem('videoWatch');
+    const parseVideo = JSON.parse(getvideos);
+    const saveBox = $('#save');
+
+
+
+
+    // 로컬스토리지 저장갯수가 5개 이상이거나 5개이면 에러메세지 표시하고 더이상 저장안되게
+    if(parseVideo.length >=5){
+        console.log(parseVideo);
+        console.log(parseVideo.length);
+        getVideo();
+    }
+
+    else{
+        saveBox.innerHTML=`저장된 영상 갯수 : ${parseVideo.length}개`;
+        handlerVideoData(e);
+    }
+
+
 }
 
 

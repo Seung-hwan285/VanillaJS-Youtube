@@ -73,50 +73,43 @@ describe('나만의 유투브', () => {
     //
     // });
 
+    it('저장버튼을 누르면 localStorage에 해당 영상이 저장된다.', () => {
+        const FIRST_INDEX = 0;
 
+        typeSearchToSubmitButton('먹방');
+
+        cy.get('.save-button')
+            .eq(FIRST_INDEX)
+            .click()
+            .click()
+            .invoke('attr', 'data-video-id')
+            .then((firstVideoId) => {
+                const list = JSON.parse(localStorage.getItem('videoWatch'));
+                expect(list[FIRST_INDEX].videoId).to.equal(firstVideoId);
+            });
+    });
+
+
+    // it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
+    //    typeSearchToSubmitButton('먹방');
     //
-    // it('저장버튼 누르면 로컬스토리지에 저장되는지 테스트',()=>{
+    //    cy.wait(2000);
+    //    cy.get('.save-button')
     //
-    //     typeSearchToSubmitButton('먹방');
+    //        // $el 버튼 요소
+    //       .each(($el,index)=>{
     //
+    //                console.log($el);
+    //                console.log(index);
+    //                $el.click();
     //
-    //     cy.get('.save-button')
-    //         .eq(0) //첫번째 인덱스 가져옴 -> 첫번째 동영상
-    //         // 첫번째 동영상 클릭
-    //         .click()
-    //         //첫번째 동영상 제목 가져옴
-    //         .invoke('attrxix','data-video-id')
-    //
-    //         .then((firstVideoId)=>{
+    //                cy.get('#storage-full').contains(STORAGE_FULL);
     //
     //
-    //             const list = JSON.parse(localStorage.getItem('videoWatch'));
-    //             // 로컬스토리지에 있는 첫번째 videoId , 클릭한 버튼 videoId 비교
-    //             expect(list[0].videoId).to.equal(firstVideoId);
-    //         });
+    //       });
+    //
+    //
+    //
     //
     // });
-
-    it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
-       typeSearchToSubmitButton('먹방');
-
-       cy.get('.save-button')
-
-           // $el 버튼 요소
-          .each(($el,index)=>{
-
-               if(index >=5){
-                   console.log($el);
-                   console.log(index);
-                   $el.click();
-
-                   cy.get('#storage-full').contains(STORAGE_FULL);
-
-               }
-          });
-
-
-
-
-    });
 });

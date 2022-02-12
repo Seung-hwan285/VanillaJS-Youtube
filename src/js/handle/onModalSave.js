@@ -11,9 +11,17 @@ import {getVideo, handlerVideoData, setVideo} from "../utils/localStorage.js";
 export const onModalSave=(e)=>{
 
     handlerVideoData(e);
+
+    const getvideos =localStorage.getItem('videoWatch');
+
+
+    const parseVideo = JSON.parse(getvideos);
+
+    if(parseVideo.length >=5){
+        return;
+    }
     setVideo();
     getVideo();
-
 }
 
 

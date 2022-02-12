@@ -25,7 +25,7 @@ export const getVideo=()=>{
 
     if(getvideos !==null){
         const paresVideo =JSON.parse(getvideos);
-        console.log(paresVideo.length);
+        console.log(paresVideo);
 
         saveBox.innerHTML=`저장된 영상 갯수 : ${paresVideo.length}개`;
         if(paresVideo.length >=5){

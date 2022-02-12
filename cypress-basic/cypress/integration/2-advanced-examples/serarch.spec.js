@@ -73,43 +73,44 @@ describe('나만의 유투브', () => {
     //
     // });
 
-    it('저장버튼을 누르면 localStorage에 해당 영상이 저장된다.', () => {
-        const FIRST_INDEX = 0;
-
-        typeSearchToSubmitButton('먹방');
-
-        cy.get('.save-button')
-            .eq(FIRST_INDEX)
-            .click()
-            .click()
-            .invoke('attr', 'data-video-id')
-            .then((firstVideoId) => {
-                const list = JSON.parse(localStorage.getItem('videoWatch'));
-                expect(list[FIRST_INDEX].videoId).to.equal(firstVideoId);
-            });
-    });
-
-
-    // it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
-    //    typeSearchToSubmitButton('먹방');
+    // it('저장버튼을 누르면 localStorage에 해당 영상이 저장된다.', () => {
+    //     const FIRST_INDEX = 0;
     //
-    //    cy.wait(2000);
-    //    cy.get('.save-button')
+    //     typeSearchToSubmitButton('먹방');
     //
-    //        // $el 버튼 요소
-    //       .each(($el,index)=>{
-    //
-    //                console.log($el);
-    //                console.log(index);
-    //                $el.click();
-    //
-    //                cy.get('#storage-full').contains(STORAGE_FULL);
-    //
-    //
-    //       });
-    //
-    //
-    //
-    //
+    //     cy.get('.save-button')
+    //         .eq(FIRST_INDEX)
+    //         .click()
+    //         .click()
+    //         .invoke('attr', 'data-video-id')
+    //         .then((firstVideoId) => {
+    //             const list = JSON.parse(localStorage.getItem('videoWatch'));
+    //             expect(list[FIRST_INDEX].videoId).to.equal(firstVideoId);
+    //         });
     // });
+
+
+    it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
+       typeSearchToSubmitButton('먹방');
+
+       cy.wait(2000);
+       cy.get('.save-button')
+
+           // $el 버튼 요소
+          .each(($el,index)=>{
+
+                   console.log($el);
+                   console.log(index);
+
+                   for(let i=0; i<5; i++){
+                       $el.click();
+                   }
+
+                   cy.get('#storage-full').should('have.text',STORAGE_FULL);
+          });
+
+
+
+
+    });
 });

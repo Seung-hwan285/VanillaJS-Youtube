@@ -102,7 +102,7 @@ describe('나만의 유투브', () => {
 
        cy.get('.save-button')
 
-           // $eq 버튼 요소
+           // $el 버튼 요소
           .each(($el,index)=>{
 
                if(index >=5){
@@ -111,7 +111,7 @@ describe('나만의 유투브', () => {
                    $el.click();
 
                    cy.get('#storage-full').contains(STORAGE_FULL);
-                   return;
+
                }
           });
 

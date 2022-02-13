@@ -14,13 +14,13 @@
 // when : 저장버튼을 클릭하면 로컬스토리지에 저장된다.
 // then :
 // -[x] 로컬스토리지에 첫번째 인덱스와 해당 첫번째 동영상이 같은지 비교한다
-// -[]  로컬스토리지에 저장개수가 5개이상이면 에러메시지를 출력한다.
+// -[x]  로컬스토리지에 저장개수가 5개이상이면 에러메시지를 출력한다.
 
 
 
 import {STORAGE_FULL} from "../../../../src/js/constant.js";
 
-describe('나만의 유투브', () => {
+describe('검색 모달창 테스트', () => {
     beforeEach(() => {
         cy.visit('http://localhost:63342/Youtube/index.html?_ijt=ia51uc4ominhpl19ost0mhdvss&_ij_reload=RELOAD_ON_SAVE');
 
@@ -89,28 +89,28 @@ describe('나만의 유투브', () => {
     //         });
     // });
 
-
-    it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
-       typeSearchToSubmitButton('먹방');
-
-       cy.wait(2000);
-       cy.get('.save-button')
-
-           // $el 버튼 요소
-          .each(($el,index)=>{
-
-                   console.log($el);
-                   console.log(index);
-
-                   for(let i=0; i<5; i++){
-                       $el.click();
-                   }
-
-                   cy.get('#storage-full').should('have.text',STORAGE_FULL);
-          });
-
-
-
-
-    });
+    //
+    // it('로컬스토리지에 영상저장 개수가 5개 넘어가면 저장실패 메세지 테스트',()=>{
+    //    typeSearchToSubmitButton('먹방');
+    //
+    //    cy.wait(2000);
+    //    cy.get('.save-button')
+    //
+    //        // $el 버튼 요소
+    //       .each(($el,index)=>{
+    //
+    //                console.log($el);
+    //                console.log(index);
+    //
+    //                for(let i=0; i<5; i++){
+    //                    $el.click();
+    //                }
+    //
+    //                cy.get('#storage-full').should('have.text',STORAGE_FULL);
+    //       });
+    //
+    //
+    //
+    //
+    // });
 });

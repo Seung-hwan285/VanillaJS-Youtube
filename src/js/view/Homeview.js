@@ -49,14 +49,9 @@ export const renderersEmpty=(localVideoData)=>{
     const $homeVideoWrapper = $('.see-video-wrapper');
 
     console.log(localVideoData);
-     localVideoData.forEach((video)=>{
-         console.log(video);
+    const lastValue = localVideoData[localVideoData.length-1];
+    $homeVideoWrapper.insertAdjacentHTML("beforeend",getSavedVideoTemplate(lastValue));
 
-         $homeVideoWrapper.insertAdjacentHTML("beforeend",getSavedVideoTemplate(video));
-
-     });
-
-     localVideoData.length=0;
 
 }
 

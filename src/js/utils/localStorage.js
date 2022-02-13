@@ -44,13 +44,20 @@ export const handlerVideoData =(e)=>{
 
     const video ={
         videoId : target.dataset.videoId,
-        videoTitle : target.dataset.videoTitel,
+        videoTitle : target.dataset.videoTitle,
         channelId : target.dataset.channelId,
-        channelTitle : target.dataset.channelId,
+        channelTitle : target.dataset.channelTitle,
         publishedAt : target.dataset.publishedAt,
     }
 
     videoList.push(video);
+
+    return videoList;
+}
+
+
+export const getTargetVideoData =(targetId)=>{
+    return videoList.find((video)=>video.videoId ===targetId);
 }
 
 

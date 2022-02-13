@@ -8,6 +8,7 @@
 
 import {getVideo, handlerVideoData, setVideo} from "../utils/localStorage.js";
 import {$} from "../utils/querySelector.js";
+import {renderersEmpty} from "../view/Homeview.js";
 
 export const onModalSave=(e)=>{
 
@@ -28,7 +29,9 @@ export const onModalSave=(e)=>{
 
     else{
         saveBox.innerHTML=`저장된 영상 갯수 : ${parseVideo.length}개`;
-        handlerVideoData(e);
+        const localVideoData=handlerVideoData(e);
+
+        renderersEmpty(localVideoData);
     }
 
 

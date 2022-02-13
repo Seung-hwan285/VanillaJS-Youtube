@@ -52,8 +52,10 @@ export const renderRecentKeyword=(keyword)=>{
 
 
 
+
+
 // 각 동영상 템플릿 객체로 매개변수 받아주고 값추가함
-const getSearchResultTemplate = ({ videoId, videoTitle, channelId, channelTitle, publishedAt }) => {
+export const getSearchResultTemplate = ({ videoId, videoTitle, channelId, channelTitle, publishedAt }) => {
     return `
         <article class="clip">
         <div class="preview-container image">

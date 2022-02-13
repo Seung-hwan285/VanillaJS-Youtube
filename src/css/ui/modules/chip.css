@@ -17,3 +17,27 @@
   width: 20px;
   text-align: center;
 }
+
+
+.watching{
+  display:  flex;
+
+  background-color: #efefef;
+  border-radius: 100px;
+
+  color: rgba(0, 0, 0, 0.87);
+  align-items: center;
+  height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+
+  margin: 100px;
+}
+
+.watching .icon{
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  width: 20px;
+  text-align: center;
+}

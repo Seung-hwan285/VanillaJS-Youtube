@@ -24,8 +24,7 @@ export const onModalSave=(e)=>{
 
     // 로컬스토리지 저장갯수가 5개 이상이거나 5개이면 에러메세지 표시하고 더이상 저장안되게
     if(parseVideo.length >=5){
-        console.log(parseVideo);
-        console.log(parseVideo.length);
+
         getVideo();
     }
 
@@ -34,7 +33,7 @@ export const onModalSave=(e)=>{
         let localVideoData=handlerVideoData(e);
 
         renderersEmpty(localVideoData);
-        localStorage.clear();
+
     }
 
 

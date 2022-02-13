@@ -48,7 +48,7 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
 export const renderersEmpty=(localVideoData)=>{
     const $homeVideoWrapper = $('.see-video-wrapper');
 
-
+    console.log(localVideoData);
      localVideoData.forEach((video)=>{
          console.log(video);
 
@@ -56,7 +56,7 @@ export const renderersEmpty=(localVideoData)=>{
 
      });
 
-
+     localVideoData.length=0;
 
 }
 

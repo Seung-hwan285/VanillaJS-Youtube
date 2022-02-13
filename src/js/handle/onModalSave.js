@@ -13,7 +13,9 @@ import {renderersEmpty} from "../view/Homeview.js";
 export const onModalSave=(e)=>{
 
     setVideo();
-    const getvideos =localStorage.getItem('videoWatch');
+    let getvideos =localStorage.getItem('videoWatch');
+
+
     const parseVideo = JSON.parse(getvideos);
     const saveBox = $('#save');
 
@@ -29,10 +31,12 @@ export const onModalSave=(e)=>{
 
     else{
         saveBox.innerHTML=`저장된 영상 갯수 : ${parseVideo.length}개`;
-        const localVideoData=handlerVideoData(e);
+        let localVideoData=handlerVideoData(e);
 
         renderersEmpty(localVideoData);
+        localStorage.clear();
     }
+
 
 
 }

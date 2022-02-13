@@ -63,6 +63,13 @@
   flex-shrink: 1;
 }
 
+.check-button{
+  background-color: rgba(255,255,255,0.5);
+  border: 0;
+
+  cursor: pointer;
+}
+
 /* Order */
 .order-1 {
   order: 1;

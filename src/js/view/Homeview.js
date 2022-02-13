@@ -1,4 +1,5 @@
 import {$} from "../utils/querySelector.js";
+import {localAllDelet} from "../utils/localStorage.js";
 
 
 
@@ -7,8 +8,9 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
         <article class="watching">
         <div class="preview-container image">
           <iframe
+            id="fram"
             width="100%"
-            height="118"
+            height="200"
             src="https://www.youtube.com/embed/${videoId}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -29,13 +31,12 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
               <p>${publishedAt}</p>
             </div>
             <div class="d-flex justify-end">
-              <button class="save-button btn" 
-              data-video-id="${videoId}"
-              data-video-title="${videoTitle}"
-              data-channel-id="${channelId}" 
-              data-channel-title="${channelTitle}"
-              data-published-at="${publishedAt}"
-              >⬇️ 저장</button>
+              <button class="save-button check-button" 
+              > ✅ ️ 시청완료</button>
+              
+              <button class="save-button check-button">
+              🗑️ 제거
+              </button>
             </div>
           </div>
         </div>
@@ -46,8 +47,17 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
 
 export const renderersEmpty=(localVideoData)=>{
     const $homeVideoWrapper = $('.see-video-wrapper');
-    console.log(localVideoData);
-    $homeVideoWrapper.insertAdjacentHTML("beforeend",localVideoData.map((localVideoData)=>getSavedVideoTemplate(localVideoData)));
+
+
+     localVideoData.forEach((video)=>{
+         console.log(video);
+
+         $homeVideoWrapper.insertAdjacentHTML("beforeend",getSavedVideoTemplate(video));
+
+     });
+
+
+
 }
 
 

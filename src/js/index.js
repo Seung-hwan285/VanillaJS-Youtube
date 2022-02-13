@@ -6,6 +6,7 @@ import {onSearchKeywordEnter} from "./handle/onModalShow.js";
 import {onMoreScroll} from "./handle/onMoreScroll.js";
 import {onModalSave} from "./handle/onModalSave.js";
 import {setVideo} from "./utils/localStorage.js";
+import {renderersEmpty} from "./view/Homeview.js";
 
 
 
@@ -38,6 +39,8 @@ export const YoutubeClassRoom =()=>{
     // 저장버튼
     $('#search-result-video-wrapper').addEventListener("click",onModalSave);
 
+    // 볼영상 페이지로 이동
+    $('#watch-video').addEventListener("click",renderersEmpty);
 };
 
 

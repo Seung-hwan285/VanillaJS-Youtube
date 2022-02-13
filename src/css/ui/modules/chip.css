@@ -18,13 +18,19 @@
   text-align: center;
 }
 
+#fram{
+  width: 300px;
+
+}
+.video-title{
+  margin-bottom: 20px;
+}
+
 
 .watching{
   display:  flex;
-
   background-color: #efefef;
   border-radius: 100px;
-
   color: rgba(0, 0, 0, 0.87);
   align-items: center;
   height: 32px;
@@ -32,7 +38,7 @@
   cursor: pointer;
   border: none;
 
-  margin: 100px;
+  margin: 200px;
 }
 
 .watching .icon{

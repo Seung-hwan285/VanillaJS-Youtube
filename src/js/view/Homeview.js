@@ -34,7 +34,7 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
               <button class="save-button check-button" 
               > ✅ ️ 시청완료</button>
               
-              <button class="save-button check-button">
+              <button class="delete-button check-button">
               🗑️ 제거
               </button>
             </div>

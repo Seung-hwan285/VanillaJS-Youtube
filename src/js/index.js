@@ -3,7 +3,7 @@ import {$} from "./utils/querySelector.js";
 import {onModalClose, onModalShowOpen} from "./view/Modalview.js";
 import {onSearchKeywordClick} from "./handle/onModalShow.js";
 import {onSearchKeywordEnter} from "./handle/onModalShow.js";
-import {onMoreScroll} from "./handle/onMoreScroll.js";
+import {onModalScroll} from "./handle/onModalScroll.js";
 import {onModalSave} from "./handle/onModalSave.js";
 import {setVideo} from "./utils/localStorage.js";
 import {renderersEmpty} from "./view/Homeview.js";
@@ -33,7 +33,7 @@ export const YoutubeClassRoom =()=>{
     // 동영상 검색을 해야 save-button 이 추가 되기때문에 미리 가져오게 되면 당연히 값을 못찾는다.
 
     // 스크롤 내리면 클립 영상 추가
-    $modalInner.addEventListener("scroll",onMoreScroll);
+    $modalInner.addEventListener("scroll",onModalScroll);
 
 
     // 저장버튼

@@ -60,8 +60,4 @@ export const handlerVideoData =(e)=>{
 }
 
 
-export const getTargetVideoData =(targetId)=>{
-    return videoList.find((video)=>video.videoId ===targetId);
-}
-
 

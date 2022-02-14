@@ -31,7 +31,7 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
               <p>${publishedAt}</p>
             </div>
             <div class="d-flex justify-end">
-              <button class="save-button check-button" 
+              <button id="save-btn" class="save-button check-button" 
               > ✅ ️ 시청완료</button>
               
               <button class="delete-button check-button">
@@ -45,16 +45,36 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
 };
 
 
-export const renderersEmpty=(localVideoData)=>{
+export const renderEmpty=(localVideoData)=> {
     const $homeVideoWrapper = $('.see-video-wrapper');
 
-    console.log(localVideoData);
-    const lastValue = localVideoData[localVideoData.length-1];
-    $homeVideoWrapper.insertAdjacentHTML("beforeend",getSavedVideoTemplate(lastValue));
 
 
-    setVideo();
+    const lastValue = localVideoData[localVideoData.length - 1];
+    $homeVideoWrapper.insertAdjacentHTML("beforeend", getSavedVideoTemplate(lastValue));
 
+
+};
+
+
+export const renderWatching =()=>{
+
+    const $watchingButton = $('#watching-video');
+    const $watchedButton =$('#watched-video');
+
+
+    $watchingButton.classList.add('bg-cyan-100');
+    $watchedButton.classList.remove('bg-cyan-100');
+};
+
+export const renderWatched=()=>{
+    const $watchedButton =$('#watched-video');
+    const $watchingButton =$('#watching-video');
+
+
+    $watchedButton.classList.add('bg-cyan-100');
+    $watchingButton.classList.remove('bg-cyan-100');
 }
 
-
+renderWatching();
+renderWatched();

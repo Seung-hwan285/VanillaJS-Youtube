@@ -1,5 +1,5 @@
 import {$} from "../utils/querySelector.js";
-import {localAllDelet} from "../utils/localStorage.js";
+import {localAllDelet, setVideo} from "../utils/localStorage.js";
 
 
 
@@ -52,6 +52,8 @@ export const renderersEmpty=(localVideoData)=>{
     const lastValue = localVideoData[localVideoData.length-1];
     $homeVideoWrapper.insertAdjacentHTML("beforeend",getSavedVideoTemplate(lastValue));
 
+
+    setVideo();
 
 }
 

@@ -33,20 +33,23 @@ describe('시청중인 화면 테스트',()=>{
 
 
        cy.get('.save-button')
+
+
            .each(($el)=>{
 
                $el.click();
-
 
            });
 
        cy.get('.modal-close').click();
 
 
-       cy.get('.see-clip').each(($el,index)=>{
+       cy.get('.channel-title').each(($el)=>{
            console.log($el);
-           cy.wrap($el)
+           cy.wrap($el).should('have.class','line');
        });
+
+
 
 
 

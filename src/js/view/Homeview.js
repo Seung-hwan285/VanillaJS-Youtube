@@ -1,5 +1,6 @@
 import {$} from "../utils/querySelector.js";
 import {localAllDelet, setVideo} from "../utils/localStorage.js";
+import {onHomeClipDelete} from "../handle/onHomeDelete.js";
 
 
 
@@ -34,7 +35,7 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
               <button id="save-btn" class="save-button check-button" 
               > ✅ ️ 시청완료</button>
               
-              <button class="delete-button check-button">
+              <button id="delete-btn" class="delete-button check-button">
               🗑️ 제거
               </button>
             </div>
@@ -56,7 +57,6 @@ export const renderEmpty=(localVideoData)=> {
 
 };
 
-
 export const renderWatching =()=>{
 
     const $watchingButton = $('#watching-video');
@@ -76,5 +76,3 @@ export const renderWatched=()=>{
     $watchingButton.classList.remove('bg-cyan-100');
 }
 
-renderWatching();
-renderWatched();

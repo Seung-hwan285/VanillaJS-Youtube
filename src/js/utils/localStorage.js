@@ -2,7 +2,7 @@ import {$} from "./querySelector.js";
 import {STORAGE_FULL} from "../constant.js";
 
 const localFull = $('#storage-full');
-const videoList =[];
+export let videoList =[];
 
 const classListToAdd =()=>{
     localFull.classList.add('show');

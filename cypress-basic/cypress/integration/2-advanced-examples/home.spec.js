@@ -29,10 +29,7 @@ describe('시청중인 화면 테스트',()=>{
 
        cy.wait(5000);
 
-
-
        cy.get('.save-button')
-
 
            .each(($el)=>{
 
@@ -42,17 +39,27 @@ describe('시청중인 화면 테스트',()=>{
 
        cy.get('.modal-close').click();
 
-
        cy.get('.channel-title').each(($el)=>{
            console.log($el);
            cy.wrap($el).should('have.class','line');
        });
+   });
 
 
+   it('제거 버튼 누르면 삭제 테스트',()=>{
+       typeSearchToSubmitButton('먹방');
+
+       cy.wait(5000);
 
 
+       cy.get('.save-button')
+           .each(($el)=>{
 
+               $el.click();
+           });
 
+       cy.get('.modal-close').click();
 
+       cy.get('.delete-button').click();
    });
 });

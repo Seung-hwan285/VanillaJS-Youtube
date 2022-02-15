@@ -6,6 +6,8 @@ import {onSearchKeywordEnter} from "./handle/onModalShow.js";
 import {onModalScroll} from "./handle/onModalScroll.js";
 import {onModalSave} from "./handle/onModalSave.js";
 import {renderWatched, renderWatching} from "./view/Homeview.js";
+import {onHomeClipDelete,
+} from "./handle/onHomeDelete.js";
 
 
 
@@ -38,15 +40,19 @@ export const YoutubeClassRoom =()=>{
     // 저장버튼
     $('#search-result-video-wrapper').addEventListener("click",onModalSave);
 
+
+
     // 볼영상 버튼
     $('#watching-video').addEventListener("click",renderWatching);
-    // 본영상 버튼 
+    // 본영상 버튼
     $('#watched-video').addEventListener("click",renderWatched);
+
+
+    $('.see-video-wrapper').addEventListener("click",onHomeClipDelete);
 };
 
 
-window.onload=()=>{
+window.onload=()=> {
     YoutubeClassRoom();
-
-}
+};
 

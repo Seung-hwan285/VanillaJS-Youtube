@@ -20,6 +20,9 @@ export const setVideo=()=>{
     localStorage.setItem("videoWatch",JSON.stringify(videoList));
 }
 
+export const setVideoFilter=(parseVideo)=>{
+    localStorage.setItem("videoWatch",JSON.stringify(parseVideo));
+}
 
 export const localAllDelet=()=>{
     localStorage.clear();

@@ -6,7 +6,7 @@ import {onHomeClipDelete} from "../handle/onHomeDelete.js";
 
 const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publishedAt})=>{
     return `
-        <article class="watching">
+        <article id=${videoId} class="watching">
         <div class="preview-container image">
           <iframe
             id="fram"

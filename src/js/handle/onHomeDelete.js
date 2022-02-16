@@ -36,23 +36,3 @@ export const onHomeClipDelete=(e)=>{
 };
 
 
-const removeVideo =(videoId)=>{
-    deleteTargetItemByKey('videoWatch','videoId',videoId);
-}
-
-const deleteTargetItemByKey=(key,secondKey,value)=> {
-    const list =getListBykey(key);
-
-    console.log(list);
-}
-
-const getListBykey=(key)=>{
-
-
-    try{
-        return JSON.parse(localStorage.getItem(key)) || [];
-    }catch(e){
-        return [];
-    }
-
-}

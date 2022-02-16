@@ -8,6 +8,7 @@ import {onModalSave} from "./handle/onModalSave.js";
 import {renderWatched, renderWatching} from "./view/Homeview.js";
 import {onHomeClipDelete,
 } from "./handle/onHomeDelete.js";
+import {onHomeSave} from "./handle/onHomeSave.js";
 
 
 
@@ -17,7 +18,7 @@ const $searchBtn =$('#search-submit');
 const $modalInner = $('.modal-inner');
 
 // 여기에 값을 넣게 되면 body가 로드될때 같이 실행이 된다
-
+const $homeVideo = $('.see-video-wrapper');
 
 export const YoutubeClassRoom =()=>{
 
@@ -47,8 +48,11 @@ export const YoutubeClassRoom =()=>{
     // 본영상 버튼
     $('#watched-video').addEventListener("click",renderWatched);
 
+    // 동영상 삭제 버튼
+    $homeVideo.addEventListener("click",onHomeClipDelete);
 
-    $('.see-video-wrapper').addEventListener("click",onHomeClipDelete);
+    // 동영상 시청 완료 버튼
+    $homeVideo.addEventListener("click",onHomeSave);
 };
 
 

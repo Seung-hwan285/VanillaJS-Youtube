@@ -19,6 +19,12 @@ export const onHomeClipDelete=(e)=>{
         // 1. 비디오 아이디를 가져온다
         // 2. fiter를 통해서 로컬스토리지 videoid와 삭제되는 videoid가 다른것만 배열에 저장한다
         // 즉 같은 videoid는 삭제
+
+        //취소누르면 return
+        if(!window.confirm('정말 삭제하시겠습니까?')){
+            return;
+        }
+
         video.parentNode.removeChild(video);
 
         const getVideos = localStorage.getItem('videoWatch');

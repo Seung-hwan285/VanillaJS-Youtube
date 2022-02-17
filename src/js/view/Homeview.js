@@ -1,10 +1,9 @@
 import {$} from "../utils/querySelector.js";
-import {localAllDelet, setVideo} from "../utils/localStorage.js";
-import {onHomeClipDelete} from "../handle/onHomeDelete.js";
+import {videoList} from "../utils/localStorage.js";
+import {CHECKED, WATCHING} from "../constant.js";
 
 
-
-const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publishedAt})=>{
+const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publishedAt},className)=>{
     return `
         <article id=${videoId} class="watching">
         <div class="preview-container image">
@@ -45,13 +44,21 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
     `;
 };
 
+const addlocal = ()=>{
 
-export const renderEmpty=(localVideoData)=> {
+    const getVideos = localStorage.getItem("videoWatch");
+
+
+    videoList=JSON.parse(getVideos);
+
+}
+
+export const paintWatcingVideo=(localVideoData)=> {
+
     const $homeVideoWrapper = $('.see-video-wrapper');
 
-
-
     const lastValue = localVideoData[localVideoData.length - 1];
+
     $homeVideoWrapper.insertAdjacentHTML("beforeend", getSavedVideoTemplate(lastValue));
 
 

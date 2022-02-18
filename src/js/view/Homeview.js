@@ -44,14 +44,7 @@ const getSavedVideoTemplate = ({videoId,videoTitle,channelId,channelTitle,publis
     `;
 };
 
-const addlocal = ()=>{
 
-    const getVideos = localStorage.getItem("videoWatch");
-
-
-    videoList=JSON.parse(getVideos);
-
-}
 
 export const paintWatcingVideo=(localVideoData)=> {
 

@@ -1,4 +1,5 @@
 import {WAHTCED, WATCHING} from "../constant.js";
+import {$} from "../utils/querySelector.js";
 
 export const onHomeSave=(e)=>{
 
@@ -17,7 +18,7 @@ export const onHomeSave=(e)=>{
 
         const videoId = video.id;
         movieVideo(videoId);
-        paintWatcedVideo(video);
+        paintWhatcedVideo(video);
 
     }
 
@@ -29,14 +30,17 @@ export const onHomeSave=(e)=>{
 
 
 
-const paintWatcedVideo=(video)=>{
+const paintWhatcedVideo=(video)=>{
 
     // 비디오 봤는지 안봤는지 toggle로 구별
-    video.classList.toggle(WAHTCED);
+    const $homeVideoWrapper = $('.see-video-wrapper');
+
+    video.classList.toggle('checked');
 
 
+    // 만약 whatched이면 신청버튼 누른거 -> 본 영상에 나오게
     if(video.classList.contains(WAHTCED)){
-
+                    
     }
 
 }

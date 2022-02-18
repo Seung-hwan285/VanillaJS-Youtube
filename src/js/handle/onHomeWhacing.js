@@ -1,7 +1,7 @@
-import {WAHTCED, WATCHING} from "../constant.js";
+import {CHECKED, WAHTCED, WATCHING} from "../constant.js";
 import {$} from "../utils/querySelector.js";
 
-export const onHomeSave=(e)=>{
+export const onHomeWhacing=(e)=>{
 
     const target = e.target;
 
@@ -15,33 +15,30 @@ export const onHomeSave=(e)=>{
 
     //시청완료 버튼 클릭
     if(target.classList.contains('save-button')){
-
-        const videoId = video.id;
-        movieVideo(videoId);
-        paintWhatcedVideo(video);
+        paintWhatcingVideo(video);
 
     }
+
 
 
 };
 
+
 // 본 영상에도 동영상 들어가는 현상
 // 본 영상은 추가되면 안된다.
-
-
-
-const paintWhatcedVideo=(video)=>{
+const paintWhatcingVideo=(video)=>{
 
     // 비디오 봤는지 안봤는지 toggle로 구별
+
     const $homeVideoWrapper = $('.see-video-wrapper');
 
     video.classList.toggle('checked');
 
+    // 만약 whatched이면 신청버튼 누른거 -> 볼 영상 숨김 , 본 영상에 나오게
+    if(video.classList.contains(CHECKED)){
 
-    // 만약 whatched이면 신청버튼 누른거 -> 본 영상에 나오게
-    if(video.classList.contains(WAHTCED)){
-                    
     }
+
 
 }
 

@@ -12,7 +12,6 @@ export const onHomeWhacing=(e)=>{
 
     const video =target.closest('article');
 
-
     //시청완료 버튼 클릭
     if(target.classList.contains('save-button')){
         paintWhatcingVideo(video);
@@ -24,8 +23,6 @@ export const onHomeWhacing=(e)=>{
 };
 
 
-// 본 영상에도 동영상 들어가는 현상
-// 본 영상은 추가되면 안된다.
 const paintWhatcingVideo=(video)=>{
 
     // 비디오 봤는지 안봤는지 toggle로 구별
@@ -38,17 +35,5 @@ const paintWhatcingVideo=(video)=>{
     if(video.classList.contains(CHECKED)){
 
     }
-
-
-}
-
-
-const movieVideo =(videoId)=>{
-
-    const getVideos = localStorage.getItem("videoWatch");
-
-    let parseVideo = JSON.parse(getVideos);
-
-    const target = parseVideo.find((video)=>video.videoId ===videoId);
 
 }

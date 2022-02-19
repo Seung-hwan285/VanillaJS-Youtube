@@ -21,47 +21,47 @@ describe('시청중인 화면 테스트',()=>{
        cy.get('#search-submit').click();
 
    }
+   //
+   // it('저장버튼을 누르면 시청중인 영상에 보여지는지 테스트',()=>{
+   //
+   //     typeSearchToSubmitButton('먹방');
+   //
+   //
+   //     cy.wait(5000);
+   //
+   //     cy.get('.save-button')
+   //
+   //         .each(($el)=>{
+   //
+   //             $el.click();
+   //
+   //         });
+   //
+   //     cy.get('.modal-close').click();
+   //
+   //     cy.get('.channel-title').each(($el)=>{
+   //         console.log($el);
+   //         cy.wrap($el).should('have.class','line');
+   //     });
+   // });
+   //
+   //
+   // it('제거 버튼 누르면 삭제 테스트',()=>{
+   //     typeSearchToSubmitButton('먹방');
+   //
+   //     cy.wait(5000);
+   //
+   //
+   //     cy.get('.save-button')
+   //         .eq(0)
+   //         .click();
+   //
+   //     cy.get('.modal-close').click();
+   //
+   //     cy.get('.delete-button').click();
+   // });
 
-   it('저장버튼을 누르면 시청중인 영상에 보여지는지 테스트',()=>{
-
-       typeSearchToSubmitButton('먹방');
-
-
-       cy.wait(5000);
-
-       cy.get('.save-button')
-
-           .each(($el)=>{
-
-               $el.click();
-
-           });
-
-       cy.get('.modal-close').click();
-
-       cy.get('.channel-title').each(($el)=>{
-           console.log($el);
-           cy.wrap($el).should('have.class','line');
-       });
-   });
-
-
-   it('제거 버튼 누르면 삭제 테스트',()=>{
-       typeSearchToSubmitButton('먹방');
-
-       cy.wait(5000);
-
-
-       cy.get('.save-button')
-           .eq(0)
-           .click();
-
-       cy.get('.modal-close').click();
-
-       cy.get('.delete-button').click();
-   });
-
-   it('시청완료 버튼 누르면 본 영상으로 이동 테스트',()=>{
+   it('시청완료 버튼 누르면 볼 영상 이동 테스트',()=>{
        typeSearchToSubmitButton('먹방');
 
        cy.wait(5000);
@@ -70,9 +70,17 @@ describe('시청중인 화면 테스트',()=>{
        cy.get('.save-button')
            .eq(0)
            .click()
-
        cy.get('.modal-close').click();
 
+       cy.get('#watching-video')
+           .eq(0)
+           .then(($el)=>{
+            console.log($el);
+                cy.wrap($el).get('#save-btn').click();
+           });
 
+       cy.get('.checked').should('not.be.visible');
+       cy.get('#watched-video').click();
+       cy.get('.show').should('be.visible');
    });
 });

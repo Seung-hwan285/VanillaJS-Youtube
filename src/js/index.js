@@ -9,7 +9,7 @@ import {renderWatched, renderWatching} from "./view/Homeview.js";
 import {onHomeClipDelete,
 } from "./handle/onHomeDelete.js";
 import {onHomeWhacing} from "./handle/onHomeWhacing.js";
-import {onHomeWhatched} from "./handle/onHomeWhatched.js";
+import {onHomeWathched} from "./handle/onHomeWatched.js";
 
 
 
@@ -18,7 +18,7 @@ const $searchBtn =$('#search-submit');
 const $modalInner = $('.modal-inner');
 // 여기에 값을 넣게 되면 body가 로드될때 같이 실행이 된다
 const $homeVideo = $('.see-video-wrapper');
-const $whatchedVideo =$('#watched-video');
+const $watchedVideo =$('#watched-video');
 
 
 export const YoutubeClassRoom =()=>{
@@ -43,7 +43,7 @@ export const YoutubeClassRoom =()=>{
     // 볼영상 버튼
     $('#watching-video').addEventListener("click",renderWatching);
     // 본영상 버튼
-    $whatchedVideo.addEventListener("click",renderWatched);
+    $watchedVideo.addEventListener("click",renderWatched);
 
     // 동영상 삭제 버튼
     $homeVideo.addEventListener("click",onHomeClipDelete);
@@ -52,7 +52,7 @@ export const YoutubeClassRoom =()=>{
     $homeVideo.addEventListener("click",onHomeWhacing);
 
     // 본 영상 누르면 숨겨놨던 동영상 보여주기
-    $whatchedVideo.addEventListener("click",onHomeWhatched);
+    $watchedVideo.addEventListener("click",onHomeWathched);
 };
 
 

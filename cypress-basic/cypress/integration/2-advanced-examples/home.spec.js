@@ -53,13 +53,26 @@ describe('시청중인 화면 테스트',()=>{
 
 
        cy.get('.save-button')
-           .each(($el)=>{
-
-               $el.click();
-           });
+           .eq(0)
+           .click();
 
        cy.get('.modal-close').click();
 
        cy.get('.delete-button').click();
+   });
+
+   it('시청완료 버튼 누르면 본 영상으로 이동 테스트',()=>{
+       typeSearchToSubmitButton('먹방');
+
+       cy.wait(5000);
+
+
+       cy.get('.save-button')
+           .eq(0)
+           .click()
+
+       cy.get('.modal-close').click();
+
+
    });
 });
